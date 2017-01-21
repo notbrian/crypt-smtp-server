@@ -18,7 +18,8 @@ mailin.on('startMessage', function (connection) {
 
 mailin.on('message', function (connection, data, content) {
 
-  console.log(data.headers.received);
+  console.log(data.text);
+  console.log(data.headers.from);
 
   // setup e-mail data with unicode symbols
 
