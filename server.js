@@ -11,14 +11,14 @@ mailin.start({
 // any connection
 
 mailin.on('startMessage', function (connection) {
-  
+
 });
 
 // received email
 
 mailin.on('message', function (connection, data, content) {
 
-  console.log(data);
+  console.log(data.headers);
 
   // setup e-mail data with unicode symbols
 
