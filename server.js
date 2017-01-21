@@ -8,6 +8,8 @@ var server = new SMTPServer({
   },
   onConnect: function(session, callback){
     console.log("connected!")
+    console.log(session)
+    console.log(callback)
   }
 });
 
