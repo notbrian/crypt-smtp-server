@@ -2,7 +2,8 @@ var mailin = require('mailin');
 var nodemailer = require('nodemailer');
 var axios = require('axios');
 
-var transporter = nodemailer.createTransport('smtps://nguyen.brian70@gmail.com:lfqbwcwhkhxnghyy@smtp.gmail.com');
+// var transporter = nodemailer.createTransport('smtps://nguyen.brian70@gmail.com:lfqbwcwhkhxnghyy@smtp.gmail.com');
+var transporter = nodemailer.createTransport();
 
 mailin.start({
   port: 25,
@@ -49,7 +50,7 @@ mailin.on('message', function (connection, data, content) {
       console.log(to);
 
       var mailOptions = {
-          from: '"plsencrypt bot" <noreply@plsencrypt.me>', // sender address
+          from: '"plsencryptme bot" <noreply@plsencrypt.me>', // sender address
           to: to, // list of receivers
           subject: subject, // Subject line
           html: html // html body
