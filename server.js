@@ -52,7 +52,7 @@ mailin.on('message', function (connection, data, content) {
           from: '"plsencrypt bot" <noreply@plsencrypt.me>', // sender address
           to: to, // list of receivers
           subject: subject, // Subject line
-          html: html // html body
+          html: "<h4> This email was forwarded by the plsencrypt bot. </h4> <br>" + html // html body
       };
 
       transporter.sendMail(mailOptions, function(error, info){
