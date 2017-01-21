@@ -19,9 +19,15 @@ mailin.on('startMessage', function (connection) {
 
 mailin.on('message', function (connection, data, content) {
 
-  axios.get('https://plsencrypt.me/publications/users').then(function (response) {
+  axios.get('https://plsencrypt.me/publications/all').then(function (response) {
 
-    console.log(response.data);
+    console.log(response.data.profiles);
+
+    axios.get('https://plsencrypt.me/publications/users').then(function (response) {
+
+      console.log(response.data.users);
+
+    });
 
   });
 
