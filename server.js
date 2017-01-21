@@ -3,7 +3,7 @@ var nodemailer = require('nodemailer');
 var axios = require('axios');
 
 // var transporter = nodemailer.createTransport('smtps://nguyen.brian70@gmail.com:lfqbwcwhkhxnghyy@smtp.gmail.com');
-var transporter = nodemailer.createTransport(s);
+var transporter = nodemailer.createTransport();
 
 mailin.start({
   port: 25,
