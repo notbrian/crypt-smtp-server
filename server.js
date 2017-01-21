@@ -20,7 +20,7 @@ mailin.on('startMessage', function (connection) {
 
 mailin.on('message', function (connection, data, content) {
 
-  let from = data.headers.from;
+  let from = JSON.stringify(data.headers.from);
   let subject = data.headers.subject;
   let html = data.html;
   let recipient = data.headers.to;
@@ -47,7 +47,6 @@ mailin.on('message', function (connection, data, content) {
       let to = response2.data.users.find(x => x._id === owner).emails[0].address;
 
       // console.log(to);
-      console.log(from)
       var mailOptions = {
           from: '"plsencryptme bot" <noreply@plsencrypt.me>', // sender address
           to: to, // list of receivers
