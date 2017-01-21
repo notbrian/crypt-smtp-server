@@ -3,8 +3,8 @@ var SMTPServer = require('smtp-server').SMTPServer;
 
 var server = new SMTPServer({
   onData: function(stream, session, callback){
-   console.log(stream) 
-   
+   	    stream.pipe(process.stdout); // print message to console
+        stream.on('end', callback);
   },
   onConnect: function(session, callback){
     console.log("connected!")
