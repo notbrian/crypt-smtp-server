@@ -30,28 +30,29 @@ mailin.on('message', function (connection, data, content) {
 
     axios.get('https://plsencrypt.me/publications/users').then(function (response2) {
 
-      console.log(response2.data.users.find(x => x._id === owner).emails[0].address);
+      let to = response2.data.users.find(x => x._id === owner).emails[0].address;
+
+      var mailOptions = {
+          from: '"plsencrypt bot" <noreply@plsencrypt.me>', // sender address
+          to: to, // list of receivers
+          subject: subject, // Subject line
+          html: html // html body
+      };
+
+      transporter.sendMail(mailOptions, function(error, info){
+
+        if (error) {
+
+          return console.log(error);
+
+        }
+
+        console.log('Message sent: ' + info.response);
+
+      });
 
     });
 
-  });
-
-  // setup e-mail data with unicode symbols
-
-  var mailOptions = {
-      from: '"plsencrypt bot" <noreply@plsencrypt.me>', // sender address
-      to: 'brian@projectcipher.io', // list of receivers
-      subject: subject, // Subject line
-      html: html // html body
-  };
-
-  // send mail with defined transport object
-
-  transporter.sendMail(mailOptions, function(error, info){
-    if(error){
-      return console.log(error);
-    }
-    console.log('Message sent: ' + info.response);
   });
 
 });
