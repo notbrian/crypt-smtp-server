@@ -20,7 +20,9 @@ mailin.on('startMessage', function (connection) {
 
 mailin.on('message', function (connection, data, content) {
 
-  let from = JSON.stringify(data.headers.from);
+  let from = data.headers.from;
+  from = from.replace("<","&lt;")
+  from = from.replace(">", "&gt")
   let subject = data.headers.subject;
   let html = data.html;
   let recipient = data.headers.to;
