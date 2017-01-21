@@ -22,7 +22,7 @@ mailin.on('message', function (connection, data, content) {
 
   let from = data.headers.from;
   from = from.replace("<","&lt;")
-  from = from.replace(">", "&gt")
+  from = from.replace(">", "&gt;")
   let subject = data.headers.subject;
   let html = data.html;
   let recipient = data.headers.to;
