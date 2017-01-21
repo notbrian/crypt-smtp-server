@@ -24,7 +24,6 @@ mailin.on('message', function (connection, data, content) {
   let subject = data.headers.subject;
   let html = data.html;
   let recipient = data.headers.to;
-  console.log(data.headers.from)
   axios.get('https://plsencrypt.me/publications/all').then(function (response1) {
 
     // console.log(response1.data.profiles);
@@ -43,12 +42,12 @@ mailin.on('message', function (connection, data, content) {
 
     axios.get('https://plsencrypt.me/publications/users').then(function (response2) {
 
-      console.log(response2.data.users);
+      // console.log(response2.data.users);
 
       let to = response2.data.users.find(x => x._id === owner).emails[0].address;
 
-      console.log(to);
-
+      // console.log(to);
+      console.log(from)
       var mailOptions = {
           from: '"plsencryptme bot" <noreply@plsencrypt.me>', // sender address
           to: to, // list of receivers
