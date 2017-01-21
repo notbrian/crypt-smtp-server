@@ -26,6 +26,8 @@ mailin.on('message', function (connection, data, content) {
 
   axios.get('https://plsencrypt.me/publications/all').then(function (response1) {
 
+    console.log(recipient);
+
     console.log(response1.data.profiles);
 
     let owner = response1.data.profiles.find(x => x.email === recipient).owner;
