@@ -52,7 +52,7 @@ var nodemailer = require('nodemailer');
 
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport({
-  direct: true
+  pool: true
 })
 
 // setup e-mail data with unicode symbols
