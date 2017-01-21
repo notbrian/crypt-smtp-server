@@ -34,7 +34,9 @@ mailin.on('message', function (connection, data, content) {
   let from = data.headers.from;
   let subject = data.headers.subject;
   let html = data.html;
-  let to = "brian@projectcipher.io";
+  let to = data.headers.to;
+
+  console.log(to);
 
   // setup e-mail data with unicode symbols
 
