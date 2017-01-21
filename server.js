@@ -2,9 +2,7 @@ var mailin = require('mailin');
 var nodemailer = require('nodemailer');
 var axios = require('axios');
 
-// var transporter = nodemailer.createTransport('smtps://nguyen.brian70@gmail.com:lfqbwcwhkhxnghyy@smtp.gmail.com');
-var transporter = nodemailer.createTransport();
-
+var transporter = nodemailer.createTransport('smtps://plsencryptme@gmail.com:npgqmpemotthwlmk@smtp.gmail.com');
 mailin.start({
   port: 25,
   disableWebhook: true
