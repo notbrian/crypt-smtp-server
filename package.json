@@ -5,6 +5,8 @@
   "main": "server.js",
   "dependencies": {
     "axios": "^0.15.3",
+    "mailin": "^3.0.3",
+    "nodemailer": "^2.7.0",
     "smtp-server": "^1.17.0"
   },
   "devDependencies": {},
