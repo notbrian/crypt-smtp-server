@@ -21,14 +21,14 @@ mailin.on('message', function (connection, data, content) {
 
   axios.get('https://plsencrypt.me/publications/users').then(function (response) {
 
-    console.log(response);
+    console.log(response.data);
 
   });
 
   let from = data.headers.from;
   let subject = data.headers.subject;
   let html = data.html;
-  let to = "";
+  let to = "brian@projectcipher.io";
 
   // setup e-mail data with unicode symbols
 
