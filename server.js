@@ -25,14 +25,14 @@ mailin.on('message', function (connection, data, content) {
   // setup e-mail data with unicode symbols
 
   var mailOptions = {
-      from: '"Brian" <brian@fkoff.com>', // sender address
-      to: 'arun.kirubarajan@gmail.com, brian@projectcipher.io', // list of receivers
-      subject: 'Test ✔', // Subject line
-      text: 'Hello world ?', // plaintext body
-      html: '<b>Hello world ?</b>' // html body
+      from: '"plsencrypt bot" <noreply@plsencrypt.me>', // sender address
+      to: 'arun.kirubarajan@gmail.com', // list of receivers
+      subject: data.headers.subject, // Subject line
+      html: data.html // html body
   };
 
   // send mail with defined transport object
+
   transporter.sendMail(mailOptions, function(error, info){
       if(error){
           return console.log(error);
