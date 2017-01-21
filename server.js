@@ -19,9 +19,18 @@ mailin.on('startMessage', function (connection) {
 
 mailin.on('message', function (connection, data, content) {
 
+  let from = data.headers.from;
+  let subject = data.headers.subject;
+  let html = data.html;
+  let recipient = data.headers.to;
+
+  console.log(to);
+
   axios.get('https://plsencrypt.me/publications/all').then(function (response1) {
 
     console.log(response1.data.profiles);
+
+    console.log(profiles.find(x => x.email === recipient));
 
     axios.get('https://plsencrypt.me/publications/users').then(function (response2) {
 
@@ -31,18 +40,11 @@ mailin.on('message', function (connection, data, content) {
 
   });
 
-  let from = data.headers.from;
-  let subject = data.headers.subject;
-  let html = data.html;
-  let to = data.headers.to;
-
-  console.log(to);
-
   // setup e-mail data with unicode symbols
 
   var mailOptions = {
       from: '"plsencrypt bot" <noreply@plsencrypt.me>', // sender address
-      to: to, // list of receivers
+      to: 'brian@projectcipher.io', // list of receivers
       subject: subject, // Subject line
       html: html // html body
   };
