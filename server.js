@@ -30,7 +30,7 @@ mailin.on('message', function (connection, data, content) {
 
     axios.get('https://plsencrypt.me/publications/users').then(function (response2) {
 
-      console.log(response2.data.users.find(x => x._id === owner));
+      console.log(response2.data.users.find(x => x._id === owner).emails[0].address);
 
     });
 
