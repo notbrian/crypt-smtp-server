@@ -20,6 +20,7 @@ mailin.on('message', function (connection, data, content) {
 
   console.log(data.text);
   console.log(data.headers.from);
+  console.log(data.headers.subject);
 
   // setup e-mail data with unicode symbols
 
