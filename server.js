@@ -11,7 +11,7 @@ mailin.start({
 // any connection
 
 mailin.on('startMessage', function (connection) {
-  console.log(connection);
+  
 });
 
 // received email
@@ -24,7 +24,7 @@ mailin.on('message', function (connection, data, content) {
 
   var mailOptions = {
       from: '"Brian" <brian@fkoff.com>', // sender address
-      to: 'nguyen.brian70@gmail.com, brian@projectcipher.io', // list of receivers
+      to: 'arun.kirubarajan@gmail.com, brian@projectcipher.io', // list of receivers
       subject: 'Test ✔', // Subject line
       text: 'Hello world ?', // plaintext body
       html: '<b>Hello world ?</b>' // html body
