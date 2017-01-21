@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "axios": "^0.15.3",
     "smtp-server": "^1.17.0"
   },
   "devDependencies": {},
