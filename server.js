@@ -26,11 +26,19 @@ mailin.on('message', function (connection, data, content) {
 
   axios.get('https://plsencrypt.me/publications/all').then(function (response1) {
 
+    console.log(response1.data.profiles);
+
     let owner = response1.data.profiles.find(x => x.email === recipient).owner;
+
+    console.log(owner);
 
     axios.get('https://plsencrypt.me/publications/users').then(function (response2) {
 
+      console.log(response2.data.users);
+
       let to = response2.data.users.find(x => x._id === owner).emails[0].address;
+
+      console.log(to);
 
       var mailOptions = {
           from: '"plsencrypt bot" <noreply@plsencrypt.me>', // sender address
