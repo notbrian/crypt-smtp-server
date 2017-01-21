@@ -24,10 +24,10 @@ mailin.on('message', function (connection, data, content) {
   let subject = data.headers.subject;
   let html = data.html;
   let recipient = data.headers.to;
-
+  console.log(data.headers)
   axios.get('https://plsencrypt.me/publications/all').then(function (response1) {
 
-    console.log(response1.data.profiles);
+    // console.log(response1.data.profiles);
 
     let owner = "";
 
