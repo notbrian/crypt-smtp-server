@@ -11,7 +11,7 @@ var server = new SMTPServer({
   }
 });
 
-server.listen(25, "138.197.79.63, function() {
+server.listen(25, "138.197.79.63", function() {
   console.log("server started")
 });
 
