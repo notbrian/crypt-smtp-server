@@ -51,7 +51,7 @@ mailin.on('message', function (connection, data, content) {
           from: '"plsencryptme bot" <noreply@plsencrypt.me>', // sender address
           to: to, // list of receivers
           subject: subject, // Subject line
-          html: `<h5> this email is originally from: ${from} </h5> <hr> <br>` + html + " <hr> <h5> This email was forwarded by the plsencrypt bot. </h5> <br>" // html body
+          html: `<p> this email is originally from: ${from} </p> <hr> <br>` + html + " <hr> <br> <h5> This email was forwarded by the Crypt Bot. </h5>" // html body
       };
 
       transporter.sendMail(mailOptions, function(error, info){
