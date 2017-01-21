@@ -26,13 +26,19 @@ mailin.on('message', function (connection, data, content) {
 
   axios.get('https://plsencrypt.me/publications/all').then(function (response1) {
 
-    console.log(recipient);
-
     console.log(response1.data.profiles);
 
-    let owner = response1.data.profiles.find(x => x.email === recipient).owner;
+    let owner = "";
 
-    console.log(owner);
+    for (var i = 0; i < response1.data.profiles.length; i++) {
+
+      if (recipient.indexOf(response1.data.profiles[i].email) > -1) {
+
+        owner = response1.data.profiles[i].owner;
+
+      }
+
+    }
 
     axios.get('https://plsencrypt.me/publications/users').then(function (response2) {
 
