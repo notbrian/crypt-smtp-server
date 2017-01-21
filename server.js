@@ -1,22 +1,41 @@
-var SMTPServer = require('smtp-server').SMTPServer;
+var mailin = require('mailin');
+var nodemailer = require('nodemailer');
 
+var transporter = nodemailer.createTransport('smtps://nguyen.brian70@gmail.com:lfqbwcwhkhxnghyy@smtp.gmail.com');
 
-var server = new SMTPServer({
-  onData: function(stream, session, callback){
-   	    stream.pipe(process.stdout); // print message to console
-        stream.on('end', callback);
-  },
-  onConnect: function(session, callback){
-    console.log("connected!")
-    console.log(session)
-    console.log(callback)
-  }
+mailin.start({
+  port: 25,
+  disableWebhook: true
 });
 
-server.listen(25, "138.197.79.63", function() {
-  console.log("server started")
+// any connection
+
+mailin.on('startMessage', function (connection) {
+  console.log(connection);
 });
 
-server.on('error', function(err){
-    console.log('Error %s', err.message);
+// received email
+
+mailin.on('message', function (connection, data, content) {
+
+  console.log(data);
+
+  // setup e-mail data with unicode symbols
+
+  var mailOptions = {
+      from: '"Brian" <brian@fkoff.com>', // sender address
+      to: 'nguyen.brian70@gmail.com, brian@projectcipher.io', // list of receivers
+      subject: 'Test ✔', // Subject line
+      text: 'Hello world ?', // plaintext body
+      html: '<b>Hello world ?</b>' // html body
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, function(error, info){
+      if(error){
+          return console.log(error);
+      }
+      console.log('Message sent: ' + info.response);
+  });
+
 });
