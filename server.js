@@ -24,9 +24,8 @@ mailin.on('message', function (connection, data, content) {
   let subject = data.headers.subject;
   let html = data.html;
   let recipient = data.headers.to;
-  axios.get('https://plsencrypt.me/publications/all').then(function (response1) {
 
-    // console.log(response1.data.profiles);
+  axios.get('https://plsencrypt.me/publications/all').then(function (response1) {
 
     let owner = "";
 
@@ -47,11 +46,12 @@ mailin.on('message', function (connection, data, content) {
       let to = response2.data.users.find(x => x._id === owner).emails[0].address;
 
       // console.log(to);
+
       var mailOptions = {
           from: '"plsencryptme bot" <noreply@plsencrypt.me>', // sender address
           to: to, // list of receivers
           subject: subject, // Subject line
-          html: `<p> this email is originally from: ${from} </p> <hr> <br>` + html + " <hr> <br> <h5> This email was forwarded by the Crypt Bot. </h5>" // html body
+          html: `<p> this email is originally from: ${from} and was sent to ${recipient} </p> <hr> <br>` + html + " <hr> <br> <h5> This email was forwarded by the Crypt Bot. </h5>" // html body
       };
 
       transporter.sendMail(mailOptions, function(error, info){
