@@ -50,7 +50,7 @@ mailin.on('message', function (connection, data, content) {
       var mailOptions = {
           from: '"plsencryptme bot" <noreply@plsencrypt.me>', // sender address
           to: to, // list of receivers
-          subject: subject, // Subject line
+          subject: '[${from}] ' + subject, // Subject line
           html: `<p> this email is originally from: ${from} and was sent to ${recipient} </p> <hr> <br>` + html + " <hr> <br> <h5> This email was forwarded by the Crypt Bot. </h5>" // html body
       };
 
