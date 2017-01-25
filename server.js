@@ -18,16 +18,16 @@ mailin.on('startMessage', function (connection) {
 
 mailin.on('message', function (connection, data, content) {
 
-  let from = data.headers.from;
+  var from = data.headers.from;
   from = from.replace("<","&lt;")
   from = from.replace(">", "&gt;")
-  let subject = data.headers.subject;
-  let html = data.html;
-  let recipient = data.headers.to;
+  var subject = data.headers.subject;
+  var html = data.html;
+  var recipient = data.headers.to;
 
   axios.get('https://getcrypt.co/publications/all').then(function (response1) {
 
-    let owner = "";
+    var owner = "";
 
     for (var i = 0; i < response1.data.profiles.length; i++) {
 
@@ -43,7 +43,7 @@ mailin.on('message', function (connection, data, content) {
 
       // console.log(response2.data.users);
 
-      let to = response2.data.users.find(x => x._id === owner).emails[0].address;
+      var to = response2.data.users.find(x => x._id === owner).emails[0].address;
 
       // console.log(to);
 
