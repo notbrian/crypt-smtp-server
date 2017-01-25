@@ -25,7 +25,7 @@ mailin.on('message', function (connection, data, content) {
   let html = data.html;
   let recipient = data.headers.to;
 
-  axios.get('https://plsencrypt.me/publications/all').then(function (response1) {
+  axios.get('https://getcrypt.co/publications/all').then(function (response1) {
 
     let owner = "";
 
@@ -39,7 +39,7 @@ mailin.on('message', function (connection, data, content) {
 
     }
 
-    axios.get('https://plsencrypt.me/publications/users').then(function (response2) {
+    axios.get('https://getcrypt.co/publications/users').then(function (response2) {
 
       // console.log(response2.data.users);
 
@@ -48,7 +48,7 @@ mailin.on('message', function (connection, data, content) {
       // console.log(to);
 
       var mailOptions = {
-          from: '"Crypt Forwarding Bot" <noreply@plsencrypt.me>', // sender address
+          from: '"Crypt Forwarding Bot" <noreply@getcrypt.co>', // sender address
           to: to, // list of receivers
           subject: subject, // Subject line
           html: `<p> this email is originally from: ${from} and was sent to ${recipient} </p> <hr> <br>` + html + " <hr> <br> <h5> This email was forwarded by the Crypt Bot. </h5>" // html body
