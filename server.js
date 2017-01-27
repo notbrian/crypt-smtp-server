@@ -1,8 +1,9 @@
 var mailin = require('mailin');
 var nodemailer = require('nodemailer');
 var axios = require('axios');
+var config = require('config.json')
 
-var transporter = nodemailer.createTransport('smtps://plsencryptme@gmail.com:npgqmpemotthwlmk@smtp.gmail.com');
+var transporter = nodemailer.createTransport(`smtps://${config.email}m:${config.pass}@smtp.gmail.com`);
 mailin.start({
   port: 25,
   disableWebhook: true
